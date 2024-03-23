@@ -1,0 +1,293 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="D. Una Delivery App"
+  description="Lo que quieras cuando quieras, a un solo click, a la puerta de tu casa, te lo llevamos ¡de una!"
+>
+  <main class="sec duna_main">
+    <h4 class="toast-instalar">La app salió del mercado en 2022</h4>
+    <h1 class="h1-main">D. UNA Delivery App</h1>
+    <div class="div-info">
+      <img class="logo" src="/d_una_logo.png" alt="logo-app" />
+      <h4 class="h4-info">4.7 ✩ <br /> 40 Opiniones</h4>
+      <h4 class="h4-info">100+ <br /> descargas</h4>
+      <h4 class="h4-info">Para mayores <br /> de 14 años</h4>
+      <h4 class="h4-info">Contiene <br /> compras</h4>
+    </div>
+    <button class="butt-instalar" id="instalar" onclick="openToast()"
+      >Instalar</button
+    >
+    <p class="detalles det-a" class="detalles det-a">
+      Una interfaz clara y ordenada simplifica la navegación por opciones de
+      emprendimientos locales. Realiza pedidos rápidos desde casa con solo unos
+      clics. Disfruta de la variedad de productos D. UNA! sin perder tiempo.
+    </p>
+    <div class="div-flyer">
+      <div class="right-pad"></div>
+      <div class="left-pad"></div>
+      <nav class="nav-flyers">
+        <ol class="ol-flyers">
+          <img
+            class="img-flyers first-flyer"
+            src="/WTFLyers1.jpg"
+            alt="Wt flyers"
+          />
+          <img class="img-flyers" src="/WTFLyers2.jpg" alt="Wt flyers" />
+          <img class="img-flyers" src="/WTFLyers3.jpg" alt="Wt flyers" />
+          <img class="img-flyers" src="/WTFLyers4.jpg" alt="Wt flyers" />
+          <img
+            class="img-flyers last-flyer"
+            src="/WTFLyers5.jpg"
+            alt="Wt flyers"
+          />
+        </ol>
+      </nav>
+    </div>
+  </main>
+  <section class="sec sec-b">
+    <h2 class="h2 about">Sobre nosotros</h2>
+    <p class="detalles det-a">
+      En octubre de 2020, en plena pandemia y cuarentena, a Jhon J. Moreno se le
+      ocurrió implementar un servicio de entrega a domicilio en Arauca,
+      Colombia. Contó con la colaboración de J. Pablo Olivera, quien se encargó
+      de las finanzas y el desarrollo de la aplicación, y Juan G. Bayona,
+      responsable de la identidad e magen de la marca.
+      <br />
+      A lo largo de 2021, D. UNA Delivery se consolidó como una empresa destacada
+      en el sector de entregas, manejando al rededor de 30 pedidos semanales. Hacíamos
+      la diferencia al ofrecer más que simples entregas: nuestros domiciliarios realizaban
+      desde trámites bancarios, mercados, hasta entregas de ropa, cumpliendo con
+      el lema: "lo que quieras cuando quieras".
+    </p>
+  </section>
+  <section class="sec sec-c">
+    <div class="div-ads">
+      <img class="img-ad" src="/Flyer_Facebook.png" alt="" />
+      <img class="img-ad" src="/Flyer_Combo_moda.png" alt="" />
+    </div>
+    <div class="det-b">
+      <h2 class="h2 destacar">A destacar</h2>
+      <p class="detalles det-c">
+        "D. UNA Delivery" representó un desafío significativo para tres recién
+        graduados de bachillerato. Más allá de sus conocimientos, contaban con
+        determinación y disciplina. Este proyecto se tradujo en un aprendizaje
+        continuo, abordando temas como programación, trabajo en equipo,
+        habilidades blandas, comunicación efectiva, networking, negocios y
+        emprendimiento.
+        <br />
+        Destacándose como empresa, D. UNA Delivery se lanzó al mercado con notable
+        rapidez, disponible tanto en App Store como en Play Store. En 2021, se posicionó
+        como una de las plataformas de delivery más utilizadas en Arauca, estableciendo
+        acuerdos con oficinas, boutiques de ropa y restaurantes.
+      </p>
+      <h3 class="h3-final">Final del proceso...</h3>
+      <p class="detalles det-c">
+        Tras un año de arduo trabajo y valiosas experiencias, en 2022 nos vimos
+        obligados a dejar Arauca para buscar un futuro académico en diversas
+        ciudades, conforme a lo previsto antes de la pandemia.
+      </p>
+    </div>
+    <p class="original">
+      Diseño original de <a href="https://www.github.com/pabl0l" target="_blank"
+        ><span class="pabl0l">Pabl0l</span></a
+      > *
+    </p>
+  </section>
+</Layout>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toast = document.querySelector(".toast-instalar");
+    const boton = document.querySelector(".butt-instalar");
+    boton?.addEventListener("click", () => {
+      if (toast instanceof HTMLElement) {
+        toast.style.bottom = "5%";
+      }
+      setTimeout(() => {
+        if (toast instanceof HTMLElement) {
+          toast.style.bottom = "-15%";
+        }
+      }, 4000);
+    });
+    const nav = document.querySelector(".nav-flyers");
+
+    if (nav !== null) {
+      const scrollIzquierdo = document.querySelector(".left-pad");
+      const scrollDerecho = document.querySelector(".right-pad");
+
+      scrollIzquierdo?.addEventListener("mouseover", () => {
+        const intervalo = setInterval(function () {
+          if (nav.scrollLeft > 980) {
+            nav.scrollLeft -= 10;
+            (nav.scrollLeft === 980 && clearInterval(intervalo)) ||
+              scrollIzquierdo?.addEventListener("mouseout", () =>
+                clearInterval(intervalo)
+              );
+          } else {
+            nav.scrollLeft -= 10;
+            (nav.scrollLeft === 0 && clearInterval(intervalo)) ||
+              scrollIzquierdo?.addEventListener("mouseout", () =>
+                clearInterval(intervalo)
+              );
+          }
+        }, 1);
+      });
+
+      scrollDerecho?.addEventListener("mouseover", () => {
+        const intervalo = setInterval(function () {
+          if (nav.scrollLeft < 980) {
+            nav.scrollLeft += 10;
+            (nav.scrollLeft === 980 && clearInterval(intervalo)) ||
+              scrollDerecho?.addEventListener("mouseout", () =>
+                clearInterval(intervalo)
+              );
+          } else {
+            nav.scrollLeft += 10;
+            (nav.scrollLeft === 1980 && clearInterval(intervalo)) ||
+              scrollDerecho?.addEventListener("mouseout", () =>
+                clearInterval(intervalo)
+              );
+          }
+        }, 1);
+      });
+    }
+  });
+</script>
+<style>
+  .sec {
+    width: 85dvw;
+    margin: 2dvw auto;
+  }
+  .h1-main {
+    margin: 0px;
+    font-size: 5dvw;
+    font-family: "Overpass", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  .h4-info {
+    display: flex;
+    text-align: center;
+    align-items: flex-end;
+    padding: 0px 36px;
+    border-right: 1px solid #040404;
+    margin: 50px 0px;
+    font-size: 1dvw;
+  }
+  .div-info {
+    display: flex;
+  }
+  .butt-instalar {
+    margin: 16px 0px;
+    border: none;
+    border-radius: 16px;
+    background-color: #2fa157;
+    padding: 12px 40px;
+    font-size: 1.5dvw;
+    cursor: pointer;
+    box-shadow: 4px 4px 32px #0007;
+    color: #f5f5f5;
+  }
+  .detalles {
+    font-size: 1.4dvw;
+  }
+  .det-a {
+    width: 65dvw;
+  }
+  .nav-flyers {
+    overflow-x: hidden;
+    white-space: nowrap;
+    width: 101dvw;
+    position: relative;
+    left: -10%;
+  }
+  .ol-flyers {
+    position: relative;
+    padding-right: 0;
+  }
+  .img-flyers {
+    width: 16dvw;
+    margin: 16px;
+    border-radius: 24px;
+  }
+  .div-flyer {
+    position: relative;
+  }
+  .first-flyer {
+    margin-left: 6dvw;
+  }
+  .last-flyer {
+    margin-right: 200px;
+  }
+  .h2 {
+    font-size: 3dvw;
+    font-family: "Overpass", sans-serif;
+  }
+  .div-ads {
+    flex: 0.3;
+  }
+  .sec-c {
+    display: flex;
+  }
+  .img-ad {
+    box-shadow: 4px 4px 8px #04040440;
+    border-radius: 16px;
+    margin: 10px;
+    width: 18.5dvw;
+  }
+  .det-b {
+    flex: 0.7;
+  }
+  .det-c {
+    margin-top: 0;
+    width: 58dvw;
+  }
+  .h3-final {
+    font-size: 2dvw;
+  }
+  .left-pad,
+  .right-pad {
+    position: absolute;
+    height: 80%;
+    top: 0;
+    width: 15.2dvw;
+    display: flex;
+    z-index: 100;
+    height: 100%;
+  }
+  .left-pad {
+    left: -10%;
+  }
+  .right-pad {
+    right: -0.5%;
+  }
+  .logo {
+    width: 10dvw;
+    height: 10dvw;
+  }
+  .toast-instalar {
+    position: fixed;
+    right: 5%;
+    bottom: -15%;
+    z-index: 10000;
+    background-color: #f5f5f5;
+    border: 3px solid #a00;
+    box-shadow: 4px 4px #600;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 40px;
+    transition: all 1000ms;
+  }
+  .original {
+    position: absolute;
+    bottom: 0%;
+    right: 10%;
+  }
+  .pabl0l {
+    font-weight: bold;
+    color: #040404;
+    text-decoration: none;
+  }
+</style>

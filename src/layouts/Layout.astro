@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="Pablo Olivera" />
+    <meta name="OG:TTTLE" content={title} />
+    <meta name="OG:IMAGE" content="/og_port_img.png" />
+    <meta
+      name="OG:DESCRIPTION"
+      content="Lo que quieras cuando quieras, a un solo click, a la puerta de tu casa, te lo llevamos ¡de una!"
+    />
+    <meta
+      name="keyword"
+      content="Domicilios Arauca, Entregas a domicilio, D. Una Delivery, Jhon Jairo Moreno Briñez, rapidomicilios, domicilios rapidos arauca"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <img class="banner" src="/banner_d_una.png" alt="banner" />
+  </body>
+</html>
+
+<style>
+  /*COLORES:
+  Naranja :#FFAF4E
+  VERDE: #2FA157
+
+  FUENTES:
+  Kite One
+  Alana
+  */
+
+  body {
+    overflow-x: hidden;
+    position: relative;
+    font-family: "Alana", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    width: 100dvw;
+    height: fit-content;
+    background-color: #f5f5f5;
+    padding: 0px;
+    color: #030303;
+    user-select: none;
+    /* margin: 2dvw 8dvw; */
+  }
+  .banner {
+    position: absolute;
+    top: -2dvw;
+    right: 0%;
+    width: 33dvw;
+    mask-image: linear-gradient(to top, #ffffff00, #ffffff 20%);
+  }
+</style>
